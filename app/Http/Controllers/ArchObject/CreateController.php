@@ -13,6 +13,6 @@ class CreateController extends BaseController
      */
    public function __invoke()
    {
-       return view('adminer.archeoObject.create');
+       return view('adminer.archObject.create');
    }
 }

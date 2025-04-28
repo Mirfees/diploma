@@ -13,6 +13,6 @@ class EditController extends BaseController
      */
    public function __invoke(ArchObject $archObject)
    {
-       // TODO: Implement __invoke() method.
+       return view('adminer.archObject.edit', compact('archObject'));
    }
 }

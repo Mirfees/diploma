@@ -26,14 +26,17 @@ Route::group(['prefix' => 'adminer'], function () {
     Route::get('/', [\App\Http\Controllers\Adminer\IndexController::class, '__invoke'])->name('admin.index')
         ->middleware(\App\Http\Middleware\AdminPanelMiddleware::class);
     Route::get('/arch_objects/create', [\App\Http\Controllers\ArchObject\CreateController::class, '__invoke'])->name('arch_object.create');
+    Route::get('/arch_objects', [\App\Http\Controllers\ArchObject\AdminIndexController::class, '__invoke'])->name('arch_objects.adminer.index');
 });
 
 Route::get('/login', [\App\Http\Controllers\HomeController::class, 'index']);
 
 Route::group(['prefix' => 'arch_objects'], function () {
     Route::get('/', [\App\Http\Controllers\ArchObject\IndexController::class, '__invoke'])->name('arch_object.index');
-    Route::get('/{ArchObject}', [\App\Http\Controllers\ArchObject\ShowController::class, '__invoke'])->name('arch_object.show');
+    Route::get('/{archObject}', [\App\Http\Controllers\ArchObject\ShowController::class, '__invoke'])->name('arch_object.show');
     Route::post('/', [\App\Http\Controllers\ArchObject\StoreController::class, '__invoke'])->name('arch_object.store');
+    Route::get('/{archObject}/edit', [\App\Http\Controllers\ArchObject\EditController::class, '__invoke'])->name('arch_object.edit');
+    Route::patch('/{archObject}', [\App\Http\Controllers\ArchObject\UpdateController::class, '__invoke'])->name('arch_object.update');
 });
 
 

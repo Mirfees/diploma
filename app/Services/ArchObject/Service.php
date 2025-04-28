@@ -10,10 +10,7 @@ class Service
         $archObject = ArchObject::create($data);
     }
 
-    public function update(Post $post, $data) {
-        $post->update($data);
-        $tags = $data['tags'];
-        unset($data['tags']);
-        $post->tags()->attach($tags);
+    public function update(ArchObject $archObject, $data) {
+        $archObject->update($data);
     }
 }

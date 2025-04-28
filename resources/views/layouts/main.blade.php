@@ -75,20 +75,20 @@
         <nav class="space-y-2 text-stone-700">
             <h4 class="font-semibold text-stone-800">Навигация</h4>
             <ul class="space-y-1">
-                <li><a href="#" class="hover:underline">Объекты</a></li>
-                <li><a href="#" class="hover:underline">Блог</a></li>
-                <li><a href="#about" class="hover:underline">О проекте</a></li>
+                <li><a href="/arch_objects" class="hover:underline">Объекты</a></li>
+                <li><a href="/posts" class="hover:underline">Блог</a></li>
+                <li><a href="/" class="hover:underline">О проекте</a></li>
                 <li><a href="#" class="hover:underline">Контакты</a></li>
             </ul>
         </nav>
 
         <div class="text-stone-600 text-sm">
-            <p>&copy; 2025 Археологическое бюро "Истоки". Все права защищены.</p>
+            <p>&copy; 2025 Институт археологических исследований Павлодарского педагогического университета им. А. Маргулана. Все права защищены.</p>
         </div>
 
         <div class="text-stone-600">
             <h4 class="font-semibold text-stone-800 mb-1">Наш адрес</h4>
-            <p>г. Самарканд, ул. Историческая, 12<br>Узбекистан, 140100</p>
+            <p>г. Павлодар, ул. Астана 151/1, 12<br>Казахстан</p>
         </div>
     </div>
 </footer>

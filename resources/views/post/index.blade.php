@@ -7,7 +7,7 @@
     </header>
 
     <!-- Фильтры и сортировка -->
-    <section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <section style="display: none" class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <select class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700">
             <option>Все регионы</option>
             <option>Самарканд</option>

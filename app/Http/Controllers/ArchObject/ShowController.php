@@ -13,6 +13,6 @@ class ShowController extends BaseController
      */
    public function __invoke(ArchObject $archObject)
    {
-       return view('object.show');
+       return view('object.show', compact('archObject'));
    }
 }
