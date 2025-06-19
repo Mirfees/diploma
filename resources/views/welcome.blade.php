@@ -14,29 +14,18 @@
     <section id="latest" class="">
         <h2 class="text-3xl font-bold text-stone-800 mb-8 text-center">Последние раскопки</h2>
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <!-- Карточка раскопки -->
-            <div class="bg-white rounded-2xl shadow p-4 border border-stone-200">
-                <img src="https://via.placeholder.com/400x200" alt="Site image" class="rounded-xl mb-4">
-                <h3 class="text-xl font-semibold text-amber-800">Раскопки у поселения Кызылоба</h3>
-                <p class="text-sm text-stone-500">Август 2024</p>
-                <p class="mt-2 text-stone-600">Найдены фрагменты керамики и остатки жилищ эпохи бронзы.</p>
-            </div>
-
-            <!-- Другая карточка -->
-            <div class="bg-white rounded-2xl shadow p-4 border border-stone-200">
-                <img src="https://via.placeholder.com/400x200" alt="Site image" class="rounded-xl mb-4">
-                <h3 class="text-xl font-semibold text-amber-800">Могильник на берегу Амударьи</h3>
-                <p class="text-sm text-stone-500">Июнь 2024</p>
-                <p class="mt-2 text-stone-600">Обнаружены древние захоронения с уникальными погребальными дарами.</p>
-            </div>
-
-            <!-- Третья карточка -->
-            <div class="bg-white rounded-2xl shadow p-4 border border-stone-200">
-                <img src="https://via.placeholder.com/400x200" alt="Site image" class="rounded-xl mb-4">
-                <h3 class="text-xl font-semibold text-amber-800">Городище Джетыасар</h3>
-                <p class="text-sm text-stone-500">Март 2024</p>
-                <p class="mt-2 text-stone-600">Изучена система укреплений и найдено множество артефактов.</p>
-            </div>
+            @foreach($archObjects as $archObject)
+                <a href="{{ route('arch_object.show', $archObject->id) }}" class="bg-white border border-stone-200 rounded-2xl shadow p-4 hover:shadow-lg transition">
+                    <img src="{{ asset('storage/' . $archObject->image) }}" alt="Кызылоба" class="rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold text-amber-800">{{ $archObject->title }}</h3>
+                    <p class="text-sm text-stone-500">{{ $archObject->place }}</p>
+                    <p class="text-stone-600 mt-2">{{ $archObject->excerpt }}</p>
+                    <div style="display: none" class="flex flex-wrap gap-2 mt-3">
+                        <span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">Керамика</span>
+                        <span class="bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded-full">Бронза</span>
+                    </div>
+                </a>
+            @endforeach
         </div>
     </section>
     @if(false)

@@ -4,9 +4,7 @@ use App\Http\Controllers\Post;
 use App\Models\ArchObject;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
 
 Route::get('/posts', [\App\Http\Controllers\Post\IndexController::class, '__invoke'])->name('post.index');
 
