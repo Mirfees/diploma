@@ -4,6 +4,9 @@
     <header>
         <h1 class="text-4xl font-bold text-amber-800">{{ $archObject->title }}</h1>
         <p class="text-stone-500 mt-2">{{ $archObject->place }}</p>
+        @can('view', auth()->user())
+            <a href="{{ route('arch_object.edit', $archObject->id) }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Редактировать</a>
+        @endcan
     </header>
 
     <img src="{{ asset('storage/' . $archObject->image) }}" alt="Кызылоба" class="rounded-xl mb-4">
