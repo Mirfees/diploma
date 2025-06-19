@@ -39,7 +39,7 @@
         <!-- Объект 1 -->
         @foreach($archObjects as $archObject) @endforeach
         <a href="{{ route('arch_object.show', $archObject->id) }}" class="bg-white border border-stone-200 rounded-2xl shadow p-4 hover:shadow-lg transition">
-            <img src="https://via.placeholder.com/400x200" alt="Кызылоба" class="rounded-xl mb-4">
+            <img src="{{ asset('storage/' . $archObject->image) }}" alt="Кызылоба" class="rounded-xl mb-4">
             <h3 class="text-xl font-semibold text-amber-800">{{ $archObject->title }}</h3>
             <p class="text-sm text-stone-500">{{ $archObject->place }}</p>
             <p class="text-stone-600 mt-2">{{ $archObject->excerpt }}</p>
@@ -51,14 +51,5 @@
 
     </section>
 
-    <!-- Пагинация -->
-    <nav class="flex justify-center pt-10">
-        <ul class="inline-flex items-center space-x-2 text-stone-700">
-            <li><a href="#" class="px-3 py-1 border border-stone-300 rounded-lg hover:bg-stone-100">Назад</a></li>
-            <li><a href="#" class="px-3 py-1 bg-amber-200 text-amber-800 rounded-lg font-semibold">1</a></li>
-            <li><a href="#" class="px-3 py-1 border border-stone-300 rounded-lg hover:bg-stone-100">2</a></li>
-            <li><a href="#" class="px-3 py-1 border border-stone-300 rounded-lg hover:bg-stone-100">3</a></li>
-            <li><a href="#" class="px-3 py-1 border border-stone-300 rounded-lg hover:bg-stone-100">Вперёд</a></li>
-        </ul>
-    </nav>
+    {{ $archObjects->withQueryString()->links() }}
 @endsection

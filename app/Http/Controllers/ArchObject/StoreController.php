@@ -16,7 +16,7 @@ class StoreController extends BaseController
    {
        if ($request->hasFile('image')) {
            $image = $request->file('image');
-           $path = $image->store('archObject');
+           $path = $image->store('archObject', 'public');
        }
 
        $data = $request->validated();
