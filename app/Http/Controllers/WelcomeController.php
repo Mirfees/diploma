@@ -13,7 +13,7 @@ class WelcomeController extends Controller
     {
         $data = $request->validated();
         $filter = app()->make(Filter::class, ['queryParams' => array_filter($data)]);
-        $archObjects = ArchObject::filter($filter)->paginate(3);
+        $archObjects = ArchObject::filter($filter)->paginate(6);
         return view('welcome', compact('archObjects'));
     }
 }

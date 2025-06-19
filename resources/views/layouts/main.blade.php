@@ -51,6 +51,22 @@
                                     @endcan
                                 </div>
                             </div>
+                            <!-- Поисковая форма -->
+                            <form action="/search" method="GET" class="ml-auto">
+                                <div class="relative text-gray-400 focus-within:text-white">
+                                    <input
+                                        type="text"
+                                        name="q"
+                                        class="bg-gray-700 text-sm text-white placeholder-gray-400 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:bg-gray-600 focus:ring-2 focus:ring-white"
+                                        placeholder="Поиск..."
+                                    />
+                                    <button type="submit" class="absolute right-0 top-0 mt-2 mr-3">
+                                        <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                                            <path d="M12.9 14.32a8 8 0 111.41-1.41l4.39 4.39-1.41 1.41-4.39-4.39zM8 14a6 6 0 100-12 6 6 0 000 12z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -65,6 +81,7 @@
                         <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
                     </div>
                 </div>
+
             </nav>
         </div>
         @yield('content')

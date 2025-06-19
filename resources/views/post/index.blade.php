@@ -2,8 +2,8 @@
 @section('content')
     <!-- Заголовок -->
     <header class="text-center">
-        <h1 class="text-4xl font-bold text-stone-800">Архив объектов</h1>
-        <p class="text-stone-500 mt-2">Все зафиксированные археологические раскопки</p>
+        <h1 class="text-4xl font-bold text-stone-800">Блог</h1>
+        <p class="text-stone-500 mt-2">Статьи и записи об археологических памятниках</p>
     </header>
 
     <!-- Фильтры и сортировка -->

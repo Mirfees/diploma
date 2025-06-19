@@ -14,7 +14,7 @@ class IndexController extends BaseController
         $data = $request->validated();
 
         $filter = app()->make(PostFilter::class, ['queryParams' => array_filter($data)]);
-        $posts = Post::filter($filter)->paginate(3);
+        $posts = Post::filter($filter)->paginate(6);
         return view('post.index', compact('posts'));
     }
 }
