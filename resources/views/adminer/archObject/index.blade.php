@@ -21,7 +21,11 @@
                     <td>{{ $object->created_at }}</td>
                     <td>
                         <a href="{{ route('arch_object.edit', $object->id) }}" class="btn btn-sm btn-outline-primary">Редактировать</a>
-                        <a href="#" class="btn btn-sm btn-outline-danger">Удалить</a>
+                        <form action="{{ route('arch_object.delete', $object->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input class="btn btn-sm btn-outline-danger" type="submit" value="Удалить">
+                        </form>
                     </td>
                 </tr>
             @endforeach

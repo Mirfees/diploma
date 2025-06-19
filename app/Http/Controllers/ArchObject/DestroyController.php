@@ -13,6 +13,7 @@ class DestroyController extends BaseController
      */
    public function __invoke(ArchObject $archObject)
    {
-       // TODO: Implement __invoke() method.
+       $archObject->delete();
+       return redirect()->route('arch_objects.adminer.index');
    }
 }

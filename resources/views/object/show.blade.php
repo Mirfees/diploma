@@ -6,6 +6,8 @@
         <p class="text-stone-500 mt-2">{{ $archObject->place }}</p>
     </header>
 
+    <img src="{{ asset('storage/' . $archObject->image) }}" alt="Кызылоба" class="rounded-xl mb-4">
+
     <!-- Информация -->
     <section class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-stone-700">
         @if($archObject->longitude && $archObject->attitude)

@@ -37,6 +37,7 @@ Route::group(['prefix' => 'arch_objects'], function () {
     Route::post('/', [\App\Http\Controllers\ArchObject\StoreController::class, '__invoke'])->name('arch_object.store');
     Route::get('/{archObject}/edit', [\App\Http\Controllers\ArchObject\EditController::class, '__invoke'])->name('arch_object.edit');
     Route::patch('/{archObject}', [\App\Http\Controllers\ArchObject\UpdateController::class, '__invoke'])->name('arch_object.update');
+    Route::delete('/{arch_object}', [\App\Http\Controllers\ArchObject\DestroyController::class, '__invoke'])->name('arch_object.delete');
 });
 
 

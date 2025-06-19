@@ -7,7 +7,7 @@
     </header>
 
     <!-- Фильтры и сортировка -->
-    <section style="display: none;" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <section  class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <select class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700">
             <option>Все регионы</option>
             <option>Самарканд</option>
@@ -37,7 +37,7 @@
     <!-- Сетка объектов -->
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Объект 1 -->
-        @foreach($archObjects as $archObject) @endforeach
+        @foreach($archObjects as $archObject)
         <a href="{{ route('arch_object.show', $archObject->id) }}" class="bg-white border border-stone-200 rounded-2xl shadow p-4 hover:shadow-lg transition">
             <img src="{{ asset('storage/' . $archObject->image) }}" alt="Кызылоба" class="rounded-xl mb-4">
             <h3 class="text-xl font-semibold text-amber-800">{{ $archObject->title }}</h3>
@@ -48,7 +48,7 @@
                 <span class="bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded-full">Бронза</span>
             </div>
         </a>
-
+        @endforeach
     </section>
 
     {{ $archObjects->withQueryString()->links() }}
