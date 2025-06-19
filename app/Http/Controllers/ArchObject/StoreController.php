@@ -23,6 +23,21 @@ class StoreController extends BaseController
 
        $data['image'] = $path;
 
+       // Создаём основной объект
+       $archObject = $this->service->store($data);
+
+       // Обработка документов
+       if ($request->hasFile('documents')) {
+           $documents = [];
+           foreach ($request->file('documents') as $document) {
+               $documents[] = $document->store('documents', 'public');
+           }
+           // Сохраняем как JSON
+           $data['documents'] = $documents;
+       } else {
+           $data['documents'] = [];
+       }
+
        $this->service->store($data);
 
        return redirect()->route('arch_object.index');

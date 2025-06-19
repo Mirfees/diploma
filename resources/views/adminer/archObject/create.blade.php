@@ -40,6 +40,12 @@
                 <input type="text" class="form-control" id="attitude" name="attitude">
             </div>
 
+            <div class="mb-3">
+                <label for="documents">Документы:</label>
+                <input type="file" class="form-control" name="documents[]" multiple>
+            </div>
+
+
             <!-- Расположение -->
             <div class="mb-3">
                 <label for="place" class="form-label">Расположение</label>

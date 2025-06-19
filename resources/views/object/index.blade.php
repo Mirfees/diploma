@@ -39,7 +39,7 @@
         <!-- Объект 1 -->
         @foreach($archObjects as $archObject)
         <a href="{{ route('arch_object.show', $archObject->id) }}" class="bg-white border border-stone-200 rounded-2xl shadow p-4 hover:shadow-lg transition">
-            <img src="{{ asset('storage/' . $archObject->image) }}" alt="Кызылоба" class="rounded-xl mb-4">
+            <img src="{{ asset('storage/' . $archObject->image) }}" style="object-fit: cover; max-height: 215px; width: 100%" class="rounded-xl mb-4">
             <h3 class="text-xl font-semibold text-amber-800">{{ $archObject->title }}</h3>
             <p class="text-sm text-stone-500">{{ $archObject->place }}</p>
             <p class="text-stone-600 mt-2">{{ $archObject->excerpt }}</p>
