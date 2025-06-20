@@ -2,7 +2,7 @@
 @section('content')
     <div class="container py-5">
         <h1 class="mb-4">Редактирование объекта</h1>
-        <form action="{{ route('arch_object.update', $archObject->id) }}" method="post">
+        <form action="{{ route('arch_object.update', $archObject->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             <!-- Название -->
@@ -14,7 +14,17 @@
             <!-- Главное изображение -->
             <div class="mb-3">
                 <label for="image" class="form-label">Главное изображение</label>
-                <input value="{{ $archObject->image }}" type="file" class="form-control" id="image" name="image">
+
+                <!-- Предпросмотр текущего изображения -->
+                @if ($archObject->image)
+                    <div class="mb-2">
+                        <img src="{{ asset('storage/' . $archObject->image) }}" alt="Текущее изображение" class="img-thumbnail" style="max-height: 150px;">
+                        <p class="form-text">Текущее изображение загружено</p>
+                    </div>
+                @endif
+
+                <!-- Поле загрузки нового изображения -->
+                <input type="file" class="form-control" id="image" name="image">
             </div>
 
             <!-- Краткое описание -->
@@ -39,6 +49,11 @@
             <div class="mb-3">
                 <label for="attitude" class="form-label">Широта</label>
                 <input value="{{ $archObject->attitude }}" type="text" class="form-control" id="attitude" name="attitude">
+            </div>
+
+            <div class="mb-3">
+                <label for="documents" class="form-label">Документы:</label>
+                <input type="file" class="form-control" name="documents[]" multiple>
             </div>
 
             <!-- Расположение -->

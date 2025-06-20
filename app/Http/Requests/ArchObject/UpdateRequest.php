@@ -23,12 +23,14 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'string',
-            'image' => ['nullable', 'image'],
+            'image' => 'nullable|image|max:5120',
             'excerpt' => 'string',
             'content' => 'string',
             'longitude' => '',
             'attitude' => '',
             'place' => 'string',
+            'documents' => 'nullable|array',
+            'documents.*' => 'file|mimes:pdf,doc,docx,txt|max:10240', // 10MB max
         ];
     }
 }

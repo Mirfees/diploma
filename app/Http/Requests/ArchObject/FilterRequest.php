@@ -29,6 +29,8 @@ class FilterRequest extends FormRequest
             'longitude' => '',
             'attitude' => '',
             'place' => 'string',
+            'documents' => 'nullable|array',
+            'documents.*' => 'file|mimes:pdf,doc,docx,txt|max:10240', // 10MB max
         ];
     }
 }

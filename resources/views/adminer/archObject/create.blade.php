@@ -41,7 +41,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="documents">Документы:</label>
+                <label for="documents" class="form-label">Документы:</label>
                 <input type="file" class="form-control" name="documents[]" multiple>
             </div>
 

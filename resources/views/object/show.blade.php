@@ -9,7 +9,7 @@
         @endcan
     </header>
 
-    <img src="{{ asset('storage/' . $archObject->image) }}" alt="Кызылоба" class="rounded-xl mb-4">
+    <img src="{{ asset('storage/' . $archObject->image) }}" alt="{{ $archObject->title }}" class="rounded-xl mb-4">
 
     <!-- Информация -->
     <section class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-stone-700">
