@@ -46,17 +46,51 @@
     <!-- Архив документов -->
     <section>
         <h2 class="text-2xl font-bold text-stone-800 mb-4">Документы</h2>
-        <ul class="list-disc list-inside text-stone-600">
-            <li><a href="#" class="text-amber-700 hover:underline">Отчет по раскопкам (PDF, 2024)</a></li>
-            <li><a href="#" class="text-amber-700 hover:underline">Фотокаталог находок</a></li>
-        </ul>
+        <ol class="list-inside text-stone-600">
+            @if($archObject->documents)
+                @foreach($archObject->documents as $document)
+                    @if(!empty($document))
+                        <li><a href="{{ asset('storage/' . $document) }}" class="text-amber-700 hover:underline">Документ</a></li>
+                    @endif
+                @endforeach
+            @endif
+        </ol>
     </section>
 
     <!-- Карта -->
     <section>
         <h2 class="text-2xl font-bold text-stone-800 mb-4">Расположение на карте</h2>
         <div class="rounded-2xl overflow-hidden border border-stone-300 shadow">
-            <img src="https://via.placeholder.com/1200x400?text=Карта+объекта" alt="Map placeholder" class="w-full h-auto">
+            <div id="map" style="width: 100%; height: 400px"></div>
         </div>
     </section>
+    <script type="text/javascript">
+        // Функция ymaps.ready() будет вызвана, когда
+        // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+        ymaps.ready(init);
+        function init(){
+            // Создание карты.
+            var myMap = new ymaps.Map("map", {
+                // Координаты центра карты.
+                // Порядок по умолчанию: «широта, долгота».
+                // Чтобы не определять координаты центра карты вручную,
+                // воспользуйтесь инструментом Определение координат.
+                center: [{{$archObject->attitude}}, {{$archObject->longitude}}],
+                // Уровень масштабирования. Допустимые значения:
+                // от 0 (весь мир) до 19.
+                zoom: 7
+            });
+
+            // Создание геообъекта с типом точка (метка).
+            var myGeoObject = new ymaps.GeoObject({
+                geometry: {
+                    type: "Point", // тип геометрии - точка
+                    coordinates: [{{$archObject->attitude}}, {{$archObject->longitude}}]// координаты точки
+                }
+            });
+
+            myMap.geoObjects.add(myGeoObject);
+        }
+
+    </script>
 @endsection

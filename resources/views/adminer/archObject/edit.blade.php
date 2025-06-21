@@ -52,7 +52,17 @@
             </div>
 
             <div class="mb-3">
+
                 <label for="documents" class="form-label">Документы:</label>
+                @if (!empty($archObject->documents))
+                    <div class="mb-2">
+                        @foreach($archObject->documents as $document)
+                            @if ($document)
+                                {{ $document }}
+                            @endif
+                        @endforeach
+                    </div>
+                @endif
                 <input type="file" class="form-control" name="documents[]" multiple>
             </div>
 

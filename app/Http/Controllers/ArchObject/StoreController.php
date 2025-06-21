@@ -38,8 +38,6 @@ class StoreController extends BaseController
            $data['documents'] = [];
        }
 
-       $this->service->store($data);
-
        return redirect()->route('arch_object.index');
    }
 }

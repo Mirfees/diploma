@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('build/assets/app-COA4iO29.css') }}">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=c59421ed-14ae-4040-aa11-22c7766b5baa&lang=ru_RU" type="text/javascript">
+    </script>
     @vite('resources/css/app.css')
     <?php $title = isset($title) ? $title : 'Diploma'; ?>
     <title>{{ $title }}</title>
