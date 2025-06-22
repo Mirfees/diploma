@@ -21,6 +21,7 @@ class StoreController extends BaseController
 
        $data = $request->validated();
 
+
        $data['image'] = $path;
 
        // Обработка документов
@@ -36,7 +37,6 @@ class StoreController extends BaseController
        }
 
        $archObject = $this->service->store($data);
-
        return redirect()->route('arch_object.index');
    }
 }

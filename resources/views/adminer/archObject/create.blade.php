@@ -28,6 +28,27 @@
                 <textarea class="form-control" id="excerpt" name="excerpt" rows="3"></textarea>
             </div>
 
+            <!-- Категория -->
+            <div class="mb-3">
+                <label for="category_id" class="form-label">Категория</label>
+                <select class="form-select" id="category_id" name="category_id">
+                    <option selected disabled>Выберите категорию</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Теги -->
+            <div class="mb-3">
+                <label for="tags" class="form-label">Теги</label>
+                <select multiple class="form-select" id="tags" name="tags[]">
+                    @foreach($tags as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <!-- Содержание -->
             <div class="mb-3">
                 <label for="content" class="form-label">Содержание *</label>

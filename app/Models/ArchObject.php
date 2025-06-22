@@ -18,7 +18,7 @@ class ArchObject extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'arch_object_tags');
+        return $this->belongsToMany(Tag::class, 'arch_object_tags', 'tag_id', 'arch_object_id');
     }
 
     protected $casts = [

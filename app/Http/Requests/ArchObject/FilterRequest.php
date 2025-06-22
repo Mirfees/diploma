@@ -27,6 +27,7 @@ class FilterRequest extends FormRequest
             'director' => 'nullable|string',
             'excerpt' => 'string',
             'content' => 'string',
+            'tags' => '',
             'longitude' => '',
             'attitude' => '',
             'place' => 'string',

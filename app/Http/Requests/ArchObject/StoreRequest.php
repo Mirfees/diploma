@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'director' => 'nullable|string',
             'excerpt' => 'string',
             'content' => 'string',
+            'tags' => '',
             'longitude' => '',
             'attitude' => '',
             'place' => 'string',
