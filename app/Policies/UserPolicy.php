@@ -15,6 +15,16 @@ class UserPolicy
         return false;
     }
 
+    public function logged(User $user): bool
+    {
+        return $user ? true : false;
+    }
+
+    public function notLogged(User $user): bool
+    {
+        return $user ? false : true;
+    }
+
     /**
      * Determine whether the user can view the model.
      */

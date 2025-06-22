@@ -23,9 +23,6 @@ class StoreController extends BaseController
 
        $data['image'] = $path;
 
-       // Создаём основной объект
-       $archObject = $this->service->store($data);
-
        // Обработка документов
        if ($request->hasFile('documents')) {
            $documents = [];
@@ -37,6 +34,8 @@ class StoreController extends BaseController
        } else {
            $data['documents'] = [];
        }
+
+       $archObject = $this->service->store($data);
 
        return redirect()->route('arch_object.index');
    }
