@@ -13,6 +13,6 @@ class CreateController extends BaseController
         $title = 'Создать пост';
         $categories = Category::all();
         $tags = Tag::all();
-        return view('post.create', compact('title', 'categories', 'tags'));
+        return view('adminer.post.create', compact('title', 'categories', 'tags'));
     }
 }

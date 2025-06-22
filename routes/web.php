@@ -8,7 +8,7 @@ Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])->name
 
 Route::get('/posts', [\App\Http\Controllers\Post\IndexController::class, '__invoke'])->name('post.index');
 
-Route::get('/posts/create', [\App\Http\Controllers\Post\CreateController::class, '__invoke'])->name('post.create');
+
 
 Route::post('/posts', [\App\Http\Controllers\Post\StoreController::class, '__invoke'])->name('post.store');
 
@@ -25,6 +25,9 @@ Route::group(['prefix' => 'adminer'], function () {
         ->middleware(\App\Http\Middleware\AdminPanelMiddleware::class);
     Route::get('/arch_objects/create', [\App\Http\Controllers\ArchObject\CreateController::class, '__invoke'])->name('arch_object.create');
     Route::get('/arch_objects', [\App\Http\Controllers\ArchObject\AdminIndexController::class, '__invoke'])->name('arch_objects.adminer.index');
+
+    Route::get('/posts/create', [\App\Http\Controllers\Post\CreateController::class, '__invoke'])->name('post.create');
+    Route::get('/posts', [\App\Http\Controllers\Post\AdminIndexController::class, '__invoke'])->name('posts.adminer.index');
 });
 
 Route::get('/login', [\App\Http\Controllers\HomeController::class, 'index']);
@@ -37,9 +40,6 @@ Route::group(['prefix' => 'arch_objects'], function () {
     Route::patch('/{archObject}', [\App\Http\Controllers\ArchObject\UpdateController::class, '__invoke'])->name('arch_object.update');
     Route::delete('/{arch_object}', [\App\Http\Controllers\ArchObject\DestroyController::class, '__invoke'])->name('arch_object.delete');
 });
-
-
-
 
 Auth::routes();
 

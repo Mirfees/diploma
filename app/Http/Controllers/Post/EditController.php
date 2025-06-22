@@ -14,6 +14,6 @@ class EditController extends BaseController
         $categories = Category::all();
         $tags = Tag::all();
 
-        return view('post.edit', compact('post', 'categories', 'tags'));
+        return view('adminer.post.edit', compact('post', 'categories', 'tags'));
     }
 }
