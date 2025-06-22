@@ -16,6 +16,11 @@ class ArchObject extends Model
     protected $table = 'arch_objects';
     protected $guarded = false;
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'arch_object_tags');
+    }
+
     protected $casts = [
         'documents' => 'array',
     ];
