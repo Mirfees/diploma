@@ -175,18 +175,50 @@
                                     <p>Смотреть все</p>
                                 </a>
                             </li>
-
+                        </ul>
+                    </li>
+                  {{--  <li class="nav-item">
+                        <a href="javascript:;" class="nav-link active">
+                            <i class="nav-icon bi bi-speedometer"></i>
+                            <p>
+                                Теги
+                                <i class="nav-arrow bi bi-chevron-right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
+                                <a href="{{ route('tag.create') }}" class="nav-link">
                                     <i class="nav-icon bi bi-circle"></i>
-                                    <p>Теги</p>
+                                    <p>Создать тег</p>
                                 </a>
                             </li>
-
                             <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
+                                <a href="{{ route('tags.adminer.index') }}" class="nav-link active">
                                     <i class="nav-icon bi bi-circle"></i>
-                                    <p>Категория</p>
+                                    <p>Смотреть все</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>--}}
+                    <li class="nav-item">
+                        <a href="javascript:;" class="nav-link active">
+                            <i class="nav-icon bi bi-speedometer"></i>
+                            <p>
+                                Категории
+                                <i class="nav-arrow bi bi-chevron-right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('category.create') }}" class="nav-link">
+                                    <i class="nav-icon bi bi-circle"></i>
+                                    <p>Создать категорию</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('categories.adminer.index') }}" class="nav-link active">
+                                    <i class="nav-icon bi bi-circle"></i>
+                                    <p>Смотреть все</p>
                                 </a>
                             </li>
                         </ul>

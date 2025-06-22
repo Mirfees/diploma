@@ -14,9 +14,9 @@ class Service
     }
 
     public function update(ArchObject $archObject, $data) {
-        $archObject->update($data);
         $tags = $data['tags'];
         unset($data['tags']);
+        $archObject->update($data);
         $archObject->tags()->attach($tags);
     }
 }

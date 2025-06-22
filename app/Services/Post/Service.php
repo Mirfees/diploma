@@ -14,9 +14,9 @@ class Service
     }
 
     public function update(Post $post, $data) {
-        $post->update($data);
         $tags = $data['tags'];
         unset($data['tags']);
+        $post->update($data);
         $post->tags()->attach($tags);
     }
 }

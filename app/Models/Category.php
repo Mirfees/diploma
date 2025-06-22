@@ -10,8 +10,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+    use Filterable;
+
+    protected $table = 'categories';
     protected $guarded = false;
+
     public function posts() {
         return $this->hasMany(Post::class, 'id', 'id');
+    }
+
+    public function archObjects() {
+        return $this->hasMany(ArchObject::class, 'id', 'id');
     }
 }

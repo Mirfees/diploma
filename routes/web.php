@@ -21,6 +21,9 @@ Route::group(['prefix' => 'adminer'], function () {
 
     Route::get('/posts/create', [\App\Http\Controllers\Post\CreateController::class, '__invoke'])->name('post.create');
     Route::get('/posts', [\App\Http\Controllers\Post\AdminIndexController::class, '__invoke'])->name('posts.adminer.index');
+
+    Route::get('/categories/create', [\App\Http\Controllers\Category\CreateController::class, '__invoke'])->name('category.create');
+    Route::get('/categories', [\App\Http\Controllers\Category\AdminIndexController::class, '__invoke'])->name('categories.adminer.index');
 });
 
 Route::get('/login', [\App\Http\Controllers\HomeController::class, 'index']);
@@ -32,6 +35,16 @@ Route::group(['prefix' => 'arch_objects'], function () {
     Route::get('/{archObject}/edit', [\App\Http\Controllers\ArchObject\EditController::class, '__invoke'])->name('arch_object.edit');
     Route::patch('/{archObject}', [\App\Http\Controllers\ArchObject\UpdateController::class, '__invoke'])->name('arch_object.update');
     Route::delete('/{arch_object}', [\App\Http\Controllers\ArchObject\DestroyController::class, '__invoke'])->name('arch_object.delete');
+});
+
+
+Route::group(['prefix' => 'categories'], function () {
+    Route::get('/', [\App\Http\Controllers\Category\IndexController::class, '__invoke'])->name('category.index');
+    Route::get('/{category}', [\App\Http\Controllers\Category\ShowController::class, '__invoke'])->name('category.show');
+    Route::post('/', [\App\Http\Controllers\Category\StoreController::class, '__invoke'])->name('category.store');
+    Route::get('/{category}/edit', [\App\Http\Controllers\Category\EditController::class, '__invoke'])->name('category.edit');
+    Route::patch('/{category}', [\App\Http\Controllers\Category\UpdateController::class, '__invoke'])->name('category.update');
+    Route::delete('/{category}', [\App\Http\Controllers\Category\DestroyController::class, '__invoke'])->name('category.delete');
 });
 
 Auth::routes();

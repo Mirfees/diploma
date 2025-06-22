@@ -5,10 +5,6 @@
         @method('PATCH')
         <div class="container py-5">
             <h1 class="mb-4">Редактировать пост</h1>
-            <form action="{{ route('post.update', $post->id) }}" method="POST">
-                @csrf
-                @method('PUT')
-
                 <!-- Заголовок поста -->
                 <div class="mb-3">
                     <label for="title" class="form-label">Заголовок поста *</label>
@@ -54,7 +50,6 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Обновить</button>
-            </form>
         </div>
 
     </form>
