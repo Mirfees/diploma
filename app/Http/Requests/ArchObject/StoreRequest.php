@@ -24,6 +24,7 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'string',
             'image' => 'image',
+            'director' => 'nullable|string',
             'excerpt' => 'string',
             'content' => 'string',
             'longitude' => '',

@@ -10,6 +10,12 @@
                 <input type="text" class="form-control" id="title" name="title" required>
             </div>
 
+            <!-- Главный руководитель -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Главный руководитель</label>
+                <input type="text" class="form-control" id="title" name="director">
+            </div>
+
             <!-- Главное изображение -->
             <div class="mb-3">
                 <label for="image" class="form-label">Главное изображение</label>

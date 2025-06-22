@@ -24,6 +24,7 @@ class FilterRequest extends FormRequest
         return [
             'title' => 'string',
             'image' => ['nullable', 'image'],
+            'director' => 'nullable|string',
             'excerpt' => 'string',
             'content' => 'string',
             'longitude' => '',

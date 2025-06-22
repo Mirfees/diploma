@@ -24,6 +24,7 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'string',
             'image' => 'nullable|image|max:5120',
+            'director' => 'nullable|string',
             'excerpt' => 'string',
             'content' => 'string',
             'longitude' => '',
