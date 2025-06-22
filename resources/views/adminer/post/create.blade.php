@@ -4,9 +4,6 @@
         @csrf
         <div class="container py-5">
             <h1 class="mb-4">Создание поста</h1>
-            <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-
                 <!-- Заголовок поста -->
                 <div class="mb-3">
                     <label for="title" class="form-label">Заголовок поста *</label>
@@ -47,7 +44,6 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Создать</button>
-            </form>
         </div>
     </form>
 @endsection

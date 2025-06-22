@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Tag extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+    use Filterable;
 
     protected $guarded = false;
 
@@ -19,6 +21,6 @@ class Tag extends Model
 
     public function archObjects()
     {
-        return $this->belongsToMany(ArchObject::class, 'arch_object_tags');
+        return $this->belongsToMany(ArchObject::class, 'arch_object_tags', 'tag_id', 'arch_object_id');
     }
 }

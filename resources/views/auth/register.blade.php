@@ -61,6 +61,21 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="is-scientist" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Научный сотрудник?') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="is-scientist" name="is_scientist">
+                                    <label class="form-check-label" for="is-scientist">
+                                        Нажмите здесь и мы свяжемся с вами для подтверждения вашего статуса научного сотрудника
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

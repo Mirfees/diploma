@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container py-5">
-        <h1 class="mb-4">Список объектов</h1>
+        <h1 class="mb-4">Список постов </h1>
         <table class="table table-bordered table-hover">
             <thead class="table-light">
             <tr>
@@ -33,5 +33,5 @@
             </tbody>
         </table>
     </div>
-    {{ $posts->withQueryString()->links() }}
+    {{ $posts->withQueryString()->links('pagination::bootstrap-5') }}
 @endsection

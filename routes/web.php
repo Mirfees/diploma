@@ -24,6 +24,9 @@ Route::group(['prefix' => 'adminer'], function () {
 
     Route::get('/categories/create', [\App\Http\Controllers\Category\CreateController::class, '__invoke'])->name('category.create');
     Route::get('/categories', [\App\Http\Controllers\Category\AdminIndexController::class, '__invoke'])->name('categories.adminer.index');
+
+    Route::get('/tags/create', [\App\Http\Controllers\Tag\CreateController::class, '__invoke'])->name('tag.create');
+    Route::get('/tags', [\App\Http\Controllers\Tag\AdminIndexController::class, '__invoke'])->name('tags.adminer.index');
 });
 
 Route::get('/login', [\App\Http\Controllers\HomeController::class, 'index']);
@@ -46,6 +49,16 @@ Route::group(['prefix' => 'categories'], function () {
     Route::patch('/{category}', [\App\Http\Controllers\Category\UpdateController::class, '__invoke'])->name('category.update');
     Route::delete('/{category}', [\App\Http\Controllers\Category\DestroyController::class, '__invoke'])->name('category.delete');
 });
+
+Route::group(['prefix' => 'tags'], function () {
+    Route::get('/', [\App\Http\Controllers\Tag\IndexController::class, '__invoke'])->name('tag.index');
+    Route::get('/{tag}', [\App\Http\Controllers\Tag\ShowController::class, '__invoke'])->name('tag.show');
+    Route::post('/', [\App\Http\Controllers\Tag\StoreController::class, '__invoke'])->name('tag.store');
+    Route::get('/{tag}/edit', [\App\Http\Controllers\Tag\EditController::class, '__invoke'])->name('tag.edit');
+    Route::patch('/{tag}', [\App\Http\Controllers\Tag\UpdateController::class, '__invoke'])->name('tag.update');
+    Route::delete('/{tag}', [\App\Http\Controllers\Tag\DestroyController::class, '__invoke'])->name('tag.delete');
+});
+
 
 Auth::routes();
 

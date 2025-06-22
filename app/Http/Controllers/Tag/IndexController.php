@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Category;
+namespace App\Http\Controllers\Tag;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
-use App\Http\Filters\Category\Filter;
-use App\Http\Requests\Category\FilterRequest;
+use App\Http\Filters\Tag\Filter;
+use App\Http\Requests\Tag\FilterRequest;
 
 class IndexController extends BaseController
 {
@@ -18,7 +18,7 @@ class IndexController extends BaseController
        $data = $request->validated();
 
        $filter = app()->make(Filter::class, ['queryParams' => array_filter($data)]);
-       $categories = Category::filter($filter)->paginate(6);
-       return view('adminer.category.index', compact('categories'));
+       $tags = Tag::filter($filter)->paginate(6);
+       return view('adminer.tag.index', compact('tags'));
    }
 }

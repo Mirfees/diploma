@@ -33,5 +33,5 @@
             </tbody>
         </table>
     </div>
-    {{ $archObjects->withQueryString()->links() }}
+    {{ $archObjects->withQueryString()->links('pagination::bootstrap-5') }}
 @endsection
