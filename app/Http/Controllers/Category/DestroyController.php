@@ -14,6 +14,6 @@ class DestroyController extends BaseController
    public function __invoke(Category $category)
    {
        $category->delete();
-       return redirect()->route('arch_objects.adminer.index');
+       return redirect()->route('categories.adminer.index');
    }
 }

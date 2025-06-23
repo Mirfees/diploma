@@ -18,7 +18,7 @@
                     <td>{{ $tag->created_at }}</td>
                     <td>
                         <a href="{{ route('tag.edit', $tag->id) }}" class="btn btn-sm btn-outline-primary">Редактировать</a>
-                        <form action="{{ route('tag.delete', $tag->id) }}" method="tag">
+                        <form action="{{ route('tag.delete', $tag->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-sm btn-outline-danger" type="submit" value="Удалить">

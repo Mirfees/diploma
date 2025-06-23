@@ -18,7 +18,7 @@
                     <td>{{ $category->created_at }}</td>
                     <td>
                         <a href="{{ route('category.edit', $category->id) }}" class="btn btn-sm btn-outline-primary">Редактировать</a>
-                        <form action="{{ route('category.delete', $category->id) }}" method="category">
+                        <form action="{{ route('category.delete', $category->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-sm btn-outline-danger" type="submit" value="Удалить">

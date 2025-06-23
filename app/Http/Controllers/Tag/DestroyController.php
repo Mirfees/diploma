@@ -14,6 +14,6 @@ class DestroyController extends BaseController
    public function __invoke(Tag $tag)
    {
        $tag->delete();
-       return redirect()->route('arch_objects.adminer.index');
+       return redirect()->route('tags.adminer.index');
    }
 }
