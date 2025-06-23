@@ -9,7 +9,7 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=c59421ed-14ae-4040-aa11-22c7766b5baa&lang=ru_RU" type="text/javascript">
     </script>
     @vite('resources/css/app.css')
-    <?php $title = isset($title) ? $title : 'Diploma'; ?>
+    <?php $title = isset($title) ? $title : 'АрхеоАрхив'; ?>
     <title>{{ $title }}</title>
 </head>
 <body class="bg-gray-50">

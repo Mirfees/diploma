@@ -16,7 +16,9 @@
         @if($archObject->longitude && $archObject->attitude)
             <div>
                 <h2 class="text-lg font-semibold text-stone-800">Координаты</h2>
-                <p>{{ $archObject->longitude }}° N, {{ $archObject->attitude }}° E</p>
+                @can('view', auth()->user())
+                    <p>{{ $archObject->longitude }}° N, {{ $archObject->attitude }}° E</p>
+                @endcan
             </div>
         @endif
 
@@ -94,14 +96,15 @@
                 // от 0 (весь мир) до 19.
                 zoom: 7
             });
-
-            // Создание геообъекта с типом точка (метка).
-            var myGeoObject = new ymaps.GeoObject({
-                geometry: {
-                    type: "Point", // тип геометрии - точка
-                    coordinates: [{{$archObject->attitude}}, {{$archObject->longitude}}]// координаты точки
-                }
-            });
+            @can('view', auth()->user())
+                // Создание геообъекта с типом точка (метка).
+                var myGeoObject = new ymaps.GeoObject({
+                    geometry: {
+                        type: "Point", // тип геометрии - точка
+                        coordinates: [{{$archObject->attitude}}, {{$archObject->longitude}}]// координаты точки
+                    }
+                });
+            @endcan
 
             myMap.geoObjects.add(myGeoObject);
         }
