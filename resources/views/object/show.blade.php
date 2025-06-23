@@ -20,9 +20,9 @@
             </div>
         @endif
 
-        <div style="display:none;">
-            <h2 class="text-lg font-semibold text-stone-800">Ответственные</h2>
-            <p>Др. Сайёра Хамидова, проф. Алишер Рахимов</p>
+        <div>
+            <h2 class="text-lg font-semibold text-stone-800">Руководитель</h2>
+            <p>{{ $archObject->director }}</p>
         </div>
     </section>
 
@@ -34,14 +34,28 @@
         </p>
     </section>
 
-    <!-- Галерея -->
-    <section>
-        <h2 class="text-2xl font-bold text-stone-800 mb-4">Фотографии</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <img src="https://via.placeholder.com/600x400" alt="Фото 1" class="rounded-xl">
-            <img src="https://via.placeholder.com/600x400" alt="Фото 2" class="rounded-xl">
+    <div class="mt-6">
+        <!-- Категория -->
+        <div class="mb-4">
+            <h3 class="text-sm font-medium text-gray-500">Категория:</h3>
+            <span class="inline-block mt-1 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">
+            {{ $archObject->category->title }}
+        </span>
         </div>
-    </section>
+
+        <!-- Теги -->
+        <div>
+            <h3 class="text-sm font-medium text-gray-500">Теги:</h3>
+            <div class="mt-2 flex flex-wrap gap-2">
+                @foreach($archObject->tags as $tag)
+                    <span class="inline-block px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-sm">
+                    {{ $tag->title }}
+                </span>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
 
     <!-- Архив документов -->
     <section>

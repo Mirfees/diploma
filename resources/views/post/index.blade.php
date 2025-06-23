@@ -39,7 +39,6 @@
         <!-- Объект 1 -->
         @foreach($posts as $post)
             <a href="{{ route('post.show', $post->id) }}" class="bg-white border border-stone-200 rounded-2xl shadow p-4 hover:shadow-lg transition">
-                <img src="https://via.placeholder.com/400x200" class="rounded-xl mb-4">
                 <h3 class="text-xl font-semibold text-amber-800">{{ $post->title }}</h3>
                 <p class="text-stone-600 mt-2">{{ $post->content }}</p>
                 <div class="flex flex-wrap gap-2 mt-3">
