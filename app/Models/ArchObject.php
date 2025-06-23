@@ -28,7 +28,7 @@ class ArchObject extends Model
 
     public function scopeFilter(Builder $query, $filters = [])
     {
-        if (empty($filters)) {
+        if (empty($filters) || empty($filters->queryParams)) {
             return $query;
         }
 
