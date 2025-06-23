@@ -24,7 +24,6 @@ class FilterRequest extends FormRequest
         return [
             'title' => 'string',
             'content' => 'string',
-            'image' => 'string',
             'category_id' => 'int',
             'tags' => '',
         ];

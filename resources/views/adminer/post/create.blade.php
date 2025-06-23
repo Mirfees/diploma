@@ -37,12 +37,6 @@
                     </select>
                 </div>
 
-                <!-- Типа изображение -->
-                <div class="mb-3">
-                    <label for="image" class="form-label">Изображение</label>
-                    <input type="text" class="form-control" id="image" name="image" placeholder="Какое-то изображение">
-                </div>
-
                 <button type="submit" class="btn btn-primary">Создать</button>
         </div>
     </form>

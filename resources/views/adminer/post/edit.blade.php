@@ -43,13 +43,7 @@
                     </select>
                 </div>
 
-                <!-- Изображение -->
-                <div class="mb-3">
-                    <label for="image" class="form-label">Изображение</label>
-                    <input value="{{ $post->image }}" type="text" class="form-control" id="image" name="image" placeholder="Какое-то изображение">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Обновить</button>
+                <button type="submit" class="btn btn-primary">Обновить</sbutton>
         </div>
 
     </form>
