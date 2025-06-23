@@ -1,38 +1,51 @@
 @extends('layouts.main')
 @section('content')
+
     <!-- Заголовок -->
     <header class="text-center">
         <h1 class="text-4xl font-bold text-stone-800">Архив объектов</h1>
         <p class="text-stone-500 mt-2">Все зафиксированные археологические раскопки</p>
     </header>
 
-    <!-- Фильтры и сортировка -->
-    <section  class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <select class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700">
-            <option>Все регионы</option>
-            <option>Самарканд</option>
-            <option>Хорезм</option>
-            <option>Фергана</option>
+    <form method="GET" action="{{ route('arch_object.index') }}" class="grid grid-cols-1 md:grid-cols-6 gap-4 mb-6">
+        <!-- Поиск -->
+        <input type="text" name="search" placeholder="Поиск..." value="{{ request('search') }}"
+               class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700 col-span-2" />
+
+        <!-- Категория -->
+        <select name="category" class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700">
+            <option value="">Категория</option>
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}" @selected(request('category') == $category->id)>
+                    {{ $category->title }}
+                </option>
+            @endforeach
         </select>
-        <select class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700">
-            <option>Все годы</option>
-            <option>2025</option>
-            <option>2024</option>
-            <option>2023</option>
+
+        <!-- Тег -->
+        <select name="tag" class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700">
+            <option value="">Тег</option>
+            @foreach($tags as $tag)
+                <option value="{{ $tag->id }}" @selected(request('tag') == $tag->id)>
+                    {{ $tag->title }}
+                </option>
+            @endforeach
         </select>
-        <select class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700">
-            <option>Тип находок</option>
-            <option>Керамика</option>
-            <option>Захоронения</option>
-            <option>Фундаменты</option>
-        </select>
-        <select class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700">
-            <option>Сортировка</option>
-            <option>По дате (новые)</option>
-            <option>По дате (старые)</option>
-            <option>По алфавиту</option>
-        </select>
-    </section>
+
+        <!-- Дата от -->
+        <input type="date" name="from_date" value="{{ request('from_date') }}"
+               class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700" />
+
+        <!-- Дата до -->
+        <input type="date" name="to_date" value="{{ request('to_date') }}"
+               class="border border-stone-300 rounded-xl px-4 py-2 text-stone-700" />
+
+        <!-- Кнопка -->
+        <button type="submit"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl transition duration-200">
+            Фильтр
+        </button>
+    </form>
 
     <!-- Сетка объектов -->
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
